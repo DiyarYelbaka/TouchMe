@@ -36,7 +36,14 @@ const styles=StyleSheet.create({
         fontSize:16,
         color:'#20C3AF',
         fontWeight:'bold'
-    }
+    },
+    button_TERTIARY:{
+      backgroundColor: "white",
+    },
+    text_TERTIARY:{
+      fontSize:16,
+      color:'gray',
+  },
   
   })
 

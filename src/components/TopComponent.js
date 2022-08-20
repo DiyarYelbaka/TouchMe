@@ -13,7 +13,7 @@ const TopComponent = ({text,backPress,drawerPress}) => {
       <View style={styles.bodyContainer}>
        <TouchableOpacity style={styles.leftIcon} onPress={backPress}>{myIcon}</TouchableOpacity>
         <Text style={styles.head}>{text}</Text>
-        <TouchableOpacity style={styles.rightIcon} onPress={drawerPress}>{myIcon2}</TouchableOpacity>
+        <TouchableOpacity style={styles.rightIcon} onPress={drawerPress}></TouchableOpacity>
       </View>
     </View>
   )

@@ -1,17 +1,29 @@
-import { View, Text,StyleSheet,Image,TouchableOpacity,ScrollView,TextInput } from 'react-native'
+import { View, Text,StyleSheet,Image,TouchableOpacity,ScrollView,TextInput,Alert } from 'react-native'
 import React,{useState} from 'react'
 import signInLogo from '../../assets/signInLogo.png'
 import CustomInput from '../components/CustomInput'
 import CustomButton from '../components/CustomButton'
 import TopComponent from '../components/TopComponent'
 import { useForm,Controller } from "react-hook-form";
+import { Auth,Hub } from 'aws-amplify';
 
 const SignInScreen = ({navigation}) => {
+  const [loading,setLoading]= useState(false)
 
   const {handleSubmit,control,formState:{errors}}  = useForm();
 
-  function onSignInPressed(data){
-     console.log(data)
+  async function onSignInPressed(data){
+    if(loading){
+      return;
+    }
+    setLoading(true)
+    try {
+      const user = await Auth.signIn(data.username, data.password);
+
+   } catch (error) {
+      Alert.alert('Hey',error.message)
+    }
+    setLoading(false)
   }
   return (
     <ScrollView  style={styles.container} showsVerticalScrollIndicator={false}>
@@ -44,7 +56,7 @@ const SignInScreen = ({navigation}) => {
       
          <Text onPress={()=>navigation.navigate('ForgotPasswordScreen')} style={styles.forgotText}>Forgot your password !</Text>
          <View style={styles.buttonContainer}>
-          <CustomButton text={'Login'} onPress={handleSubmit(onSignInPressed)} />
+          <CustomButton text={loading ? 'Loading...' : 'Login'} onPress={handleSubmit(onSignInPressed)} />
           <TouchableOpacity
             style={styles.dont}
             onPress={()=>navigation.navigate('Sign Up')}
