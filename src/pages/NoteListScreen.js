@@ -1,18 +1,22 @@
-import { View, Text,StyleSheet,FlatList } from 'react-native'
+import { View, Text,StyleSheet,FlatList,ImageBackground } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import CustomNote from '../components/CustomNote';
 import FloatingButton from '../components/FloatingButton';
 import CustomModal from '../components/CustomModal';
 import { DataStore } from 'aws-amplify';
 import { Todo } from '../models';
+import CustomToDoTopComponent from '../components/CustomToDoTopComponent';
+import image from '../../assets/NoteList.png'
 
 
-const NoteListScreen = () => {
+
+const NoteListScreen = ({navigation}) => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [todos, setTodos] = useState([]);
+  const [modalVisibleList, setModalVisibleList] = useState(false);
 
   useEffect(() => {
 
@@ -51,11 +55,20 @@ const NoteListScreen = () => {
 
 
   const renderItem = ({ item }) => (
-    <CustomNote data={item} />
+    <CustomNote
+     data={item} 
+     complitePress={()=> setComplete(!item.isComplete, item)}
+     deleteButton={() => {
+      deleteTodo(item);
+    }}
+     //onPress={()=> setComplete(!item.isComplete, item)}
+     //navigation.openDrawer();
+      />
   );
 
   return (
     <View style={styles.container}>
+      <CustomToDoTopComponent DrawerSubmit={()=>navigation.openDrawer()} />
       <CustomModal 
       modalVisible={modalVisible} 
       setModalVisible={setModalVisible}
@@ -63,6 +76,7 @@ const NoteListScreen = () => {
       setDescription={setDescription}
       description={description}
       name={name}
+    
        />
        <FlatList
         data={todos}

@@ -1,4 +1,4 @@
-import { View, Text,Modal,StyleSheet,Pressable,Alert,TextInput,Dimensions } from 'react-native'
+import { View, Text,Modal,StyleSheet,Pressable,Alert,TextInput,Dimensions,TouchableOpacity } from 'react-native'
 import React from 'react'
 import { DataStore } from 'aws-amplify';
 import { Todo } from '../models';
@@ -26,32 +26,36 @@ const CustomModal = ({modalVisible,setModalVisible,setName,setDescription,name,d
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
+            <Text style={styles.modalText}>Not Ekle !</Text>
             <View style={styles.inputContainer}>
             <TextInput
              onChangeText={setName}
-             placeholder="Name"
-            
-             />
+             placeholder="Başlık"
+             multiline
+             style={styles.input}
+             /> 
              <TextInput
              onChangeText={setDescription}
-             placeholder="Description"
-           
+             placeholder="Detay"
+             style={styles.input}
+             multiline
             />
-           
+            
             </View>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
+            <View  style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.button1}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
+              <Text style={styles.textStyle}>Vazgeç</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button2}
               onPress={addTodo}
             >
-              <Text style={styles.textStyle}>Add To Do</Text>
-            </Pressable>
+              <Text style={styles.textStyle}>Kaydet</Text>
+            </TouchableOpacity>
+            </View>
           </View>
         </View>
       </Modal>
@@ -63,7 +67,7 @@ const styles = StyleSheet.create({
     centeredView: {
       justifyContent: "center",
       alignItems: "center",
-      marginTop: 22,
+      
       top:200,
     },
     modalView: {
@@ -71,7 +75,7 @@ const styles = StyleSheet.create({
       margin: 20,
       backgroundColor: "white",
       borderRadius: 20,
-      padding: 35,
+      padding: 30,
       alignItems: "center",
       shadowColor: "#000",
       shadowOffset: {
@@ -82,16 +86,19 @@ const styles = StyleSheet.create({
       shadowRadius: 4,
       elevation: 5
     },
-    button: {
+    button1: {
       borderRadius: 20,
       padding: 10,
-      elevation: 2
+      elevation: 2,
+      backgroundColor: "red",
+      marginHorizontal:15
     },
-    buttonOpen: {
-      backgroundColor: "#F194FF",
-    },
-    buttonClose: {
+    button2: {
+      borderRadius: 20,
+      padding: 10,
+      elevation: 2,
       backgroundColor: "#2196F3",
+      marginHorizontal:15,
     },
     textStyle: {
       color: "white",
@@ -100,10 +107,23 @@ const styles = StyleSheet.create({
     },
     modalText: {
       marginBottom: 15,
-      textAlign: "center"
+      textAlign: "center",
+      fontSize:24,
+      color:'#E67E22',
     },
     inputContainer:{
      width:300,
+    },
+    buttonContainer:{
+     flexDirection:'row',
+     margin:12
+    },
+    input:{
+      borderWidth:1,
+      backgroundColor:'#F2F3F4',
+      margin:4,
+      borderRadius:20,
+      borderColor:'gray',
     }
   });
   

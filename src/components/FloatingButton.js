@@ -20,11 +20,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingHorizontal: 10,
     alignItems:'center',
+    position:'absolute',
+    bottom:20,
   },
   button: {
     alignItems: "center",
     padding: 10,
-    position:'absolute',
     backgroundColor:'#E67E22',
     borderRadius:15,
     width:150,
@@ -32,8 +33,9 @@ const styles = StyleSheet.create({
     justifyContent:'center',
   },
   text:{
-    color:'black',
+    color:'white',
     fontSize:18,
+    fontWeight:'bold'
   }
 });
 

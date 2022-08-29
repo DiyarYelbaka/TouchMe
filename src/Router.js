@@ -90,8 +90,15 @@ function MyDrawer() {
   return (
     <Drawer.Navigator
     drawerContent={props => <CustomSideMenu {...props}/>}
+    screenOptions={{
+      headerShown:false
+    }}
     >
-      <Drawer.Screen name="Note" component={NoteListScreen} />
+      <Drawer.Screen 
+      name="Note" 
+      component={NoteListScreen} 
+        
+       />
     </Drawer.Navigator>
   );
 }
