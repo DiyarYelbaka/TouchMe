@@ -17,6 +17,7 @@ import CustomSideMenu from './components/CustomSideMenu';
 
 
 import { Auth, Hub } from 'aws-amplify';
+import Count from './pages/Count';
 
 
 const Stack = createStackNavigator();
@@ -65,20 +66,15 @@ const Router = () => {
        screenOptions={{
         headerShown:false
        }}
-      > 
-        {user ? (
+       >
             <Stack.Screen name="Home" component={MyDrawer} />
-          ):(
-            <>
+            <Stack.Screen name='Counter' component={Count} />
             <Stack.Screen name="OnBoardingScreen" component={OnBoarding} />
             <Stack.Screen name="Sign in" component={SignInScreen} />
             <Stack.Screen name="Sign Up" component={SignUpScreen} />
             <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
             <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
             <Stack.Screen name="ConfirmEmail" component={ConfirmEmailScreen} />
-            </>
-          )
-        }
       </Stack.Navigator>
     </NavigationContainer>
   )
@@ -116,5 +112,20 @@ function MyDrawer() {
 //     </Tab.Navigator>
 //   );
 // }
-
+// {user ? (
+//   <>
+//   <Stack.Screen name="Home" component={MyDrawer} />
+//   <Stack.Screen name='Counter' component={Count} />
+//   </>
+// ):(
+//   <>
+//   <Stack.Screen name="OnBoardingScreen" component={OnBoarding} />
+//   <Stack.Screen name="Sign in" component={SignInScreen} />
+//   <Stack.Screen name="Sign Up" component={SignUpScreen} />
+//   <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
+//   <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
+//   <Stack.Screen name="ConfirmEmail" component={ConfirmEmailScreen} />
+//   </>
+// )
+// }
 export default Router

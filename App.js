@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text,StatusBar } from 'react-native'
 import React from 'react'
 import Router from './src/Router'
 
@@ -9,7 +9,12 @@ Amplify.configure(awsconfig)
 
 const App = () => {
   return (
+    <>
+    <StatusBar
+      backgroundColor="transparent"
+      translucent={true}/>
    <Router />
+   </>
   )
 }
 

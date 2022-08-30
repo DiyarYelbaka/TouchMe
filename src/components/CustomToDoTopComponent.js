@@ -5,36 +5,41 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const CustomToDoTopComponent = ({navigation,DrawerSubmit}) => {
   return (
     <View style={styles.container}>
+      <Text style={styles.head}>Notes</Text>
       <TouchableOpacity 
       onPress={DrawerSubmit}
       style={styles.button}
       >
-        <Icon name="backburger" size={40} color="#34495E" />
+        <Icon name="backburger" size={40} color="white" />
       </TouchableOpacity>
-      <Text style={styles.head}>Note Screen</Text>
+    
     </View>
   )
 }
 
 const styles= StyleSheet.create({
     container:{
-     backgroundColor:'#ECF0F1',
+     backgroundColor:'#252525',
      width:Dimensions.get('window').width/1,
-     height:60,
-     borderBottomLeftRadius:40,
-     borderBottomRightRadius:40,
-     borderWidth:2,
-     flexDirection:'row'
+     height:50,
+     flexDirection:'row',
+     margin:15,
     },
     head:{
       alignSelf:'center',
-      color:'#CD5C5C',
-      fontSize:25,
+      color:'white',
+      fontSize:43,
       alignSelf:'center',
-      marginHorizontal:78,
+      marginHorizontal:10,
     },
     button:{
-      margin:8
+      margin:8,
+      marginHorizontal:170,
+      backgroundColor:'#3B3B3B',
+      borderRadius:20,
+      width:50,
+      height:50,
+      justifyContent:'center'
     }
 })
 

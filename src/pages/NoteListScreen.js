@@ -7,16 +7,21 @@ import { DataStore } from 'aws-amplify';
 import { Todo } from '../models';
 import CustomToDoTopComponent from '../components/CustomToDoTopComponent';
 import image from '../../assets/NoteList.png'
+import { useDispatch } from 'react-redux'
+import { setModal} from '../redux/slices/modalSlice'
 
 
 
 const NoteListScreen = ({navigation}) => {
 
-  const [modalVisible, setModalVisible] = useState(false);
+  const dispatch = useDispatch()
+
+ 
+  //const [modalVisible, setModalVisible] = useState(false);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [todos, setTodos] = useState([]);
-  const [modalVisibleList, setModalVisibleList] = useState(false);
+  //const [modalVisibleList, setModalVisibleList] = useState(false);
 
   useEffect(() => {
 
@@ -66,12 +71,14 @@ const NoteListScreen = ({navigation}) => {
       />
   );
 
+  
+
   return (
     <View style={styles.container}>
       <CustomToDoTopComponent DrawerSubmit={()=>navigation.openDrawer()} />
       <CustomModal 
-      modalVisible={modalVisible} 
-      setModalVisible={setModalVisible}
+      // modalVisible={modalVisible} 
+      // setModalVisible={setModalVisible}
       setName={setName}
       setDescription={setDescription}
       description={description}
@@ -82,10 +89,10 @@ const NoteListScreen = ({navigation}) => {
         data={todos}
         renderItem={renderItem}
         keyExtractor={({ id }) => id}
-        numColumns={2}
+        numColumns={1}
        
       />
-      <FloatingButton onPress={()=> setModalVisible(true)} />
+      <FloatingButton onPress={()=> dispatch(setModal())} />
     </View>
   )
 }
@@ -93,7 +100,7 @@ const NoteListScreen = ({navigation}) => {
 const styles= StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:'#16A085',
+    backgroundColor:'#252525',
     alignItems:'center',
   },
   

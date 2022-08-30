@@ -1,76 +1,57 @@
-import { View, Text,StyleSheet,TouchableOpacity, Pressable} from 'react-native'
+import { View, Text,StyleSheet,TouchableOpacity, Pressable,Dimensions,Alert} from 'react-native'
 import React,{useState} from 'react'
-import ListModal from './ListModel'
+
 
 const CustomNote = ({data,complitePress,navigation,deleteButton}) => {
-  const [modalVisibleList, setModalVisibleList] = useState(false);
-  function onPress(){
-   
-      setModalVisibleList(!modalVisibleList)
+  
+  const generateColor = () => {
+    const randomColor = Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(1, '0');
+    return `#${randomColor}`;
+  };
+
+  function deleteNote(){
+    deleteButton()
+    Alert.alert('Başarılı','Not başarıyla silindi')
+  }
+
+  function infoPress(){
+    Alert.alert('Bilgi','Silmek için lütfen basılı tutunuz !')
   }
   
   return (
-  <View  style={styles.container}>
-   <TouchableOpacity
-    onPress={onPress}
+    <TouchableOpacity
+    onPress={infoPress}
+    onLongPress={deleteNote}
+    style={[styles.container, {backgroundColor: generateColor()}]}
    >
-     <Text numberOfLines={1} style={styles.head}>{data.name}</Text>
-     <Text numberOfLines={2} style={styles.title}>{data.description}</Text>
-    </TouchableOpacity>
+    <View>
+     <Text  style={styles.title}>{data.description}</Text>
      <View style={styles.checkboxContainer}>
-      <Pressable
-       onPress={complitePress}
-      >
-      <Text
-        style={[styles.checkbox, data.isComplete && styles.completedCheckbox]}
-      >
-        {data.isComplete ? '✓' : ''}
-      </Text> 
-      </Pressable>
       </View>
-      <ListModal 
-       modalVisibleList={modalVisibleList} 
-       setModalVisibleList={setModalVisibleList} 
-       data={data}
-       deleteButton={deleteButton}
-     />
      </View>
+     </TouchableOpacity>
      
   )
 }
 
 const styles= StyleSheet.create({
     container:{
+      width:Dimensions.get('window').width/1.1,
+      minHeight:100,
       backgroundColor: 'white',
-       height:160,
-       width:160,
-       margin:10,
        alignItems:'center',
        alignSelf:'center',
-       borderRadius:50,
+       borderRadius:12,
        justifyContent:'center',
-       borderWidth:2,
-       borderColor:'#808B96',
-       shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 2
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-      elevation: 10
-      
+       margin:12
     },
-    head: {
-        fontSize: 21,
-        color:'#CD6155',
-        top:-20,
-        alignSelf:'center'
-      },
     title:{
-        fontSize:15,
+        fontSize:20,
         alignSelf:'center',
-        color:'black'
+        color:'white',
+        margin:20
     },
     checkboxContainer:{
       alignItems:'center',

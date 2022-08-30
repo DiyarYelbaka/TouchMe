@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { Dimensions, Modal, StyleSheet, Text, Pressable, View,TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+
 const ListModal = ({modalVisibleList,setModalVisibleList,data,deleteButton}) => {
+
+  
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -10,7 +13,7 @@ const ListModal = ({modalVisibleList,setModalVisibleList,data,deleteButton}) => 
         transparent={true}
         visible={modalVisibleList}
         onRequestClose={() => {
-          setModalVisible(!modalVisibleList);
+          setModalVisibleList(!modalVisibleList)
         }}
       >
         <View style={styles.centeredView}>
