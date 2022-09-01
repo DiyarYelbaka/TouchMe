@@ -34,11 +34,12 @@ const styles=StyleSheet.create({
      marginVertical:50
     },
     Logo:{
-        marginVertical:10
+        marginVertical:10,
     },
     text:{
         marginVertical:50,
-        fontSize:16
+        fontSize:16,
+        color:'white'
     },
     textbutton:{
        fontSize:40,

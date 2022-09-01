@@ -6,22 +6,14 @@ import CustomModal from '../components/CustomModal';
 import { DataStore } from 'aws-amplify';
 import { Todo } from '../models';
 import CustomToDoTopComponent from '../components/CustomToDoTopComponent';
-import image from '../../assets/NoteList.png'
-import { useDispatch } from 'react-redux'
-import { setModal} from '../redux/slices/modalSlice'
-
 
 
 const NoteListScreen = ({navigation}) => {
 
-  const dispatch = useDispatch()
-
- 
-  //const [modalVisible, setModalVisible] = useState(false);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [todos, setTodos] = useState([]);
-  //const [modalVisibleList, setModalVisibleList] = useState(false);
+
 
   useEffect(() => {
 
@@ -92,7 +84,7 @@ const NoteListScreen = ({navigation}) => {
         numColumns={1}
        
       />
-      <FloatingButton onPress={()=> dispatch(setModal())} />
+      <FloatingButton onPress={()=> navigation.navigate('addNoteScreen')} />
     </View>
   )
 }

@@ -18,6 +18,8 @@ import CustomSideMenu from './components/CustomSideMenu';
 
 import { Auth, Hub } from 'aws-amplify';
 import Count from './pages/Count';
+import AddNoteScreen from './pages/AddNoteScreen';
+import CustomListNote from './components/DetailList';
 
 
 const Stack = createStackNavigator();
@@ -67,14 +69,23 @@ const Router = () => {
         headerShown:false
        }}
        >
-            <Stack.Screen name="Home" component={MyDrawer} />
-            <Stack.Screen name='Counter' component={Count} />
-            <Stack.Screen name="OnBoardingScreen" component={OnBoarding} />
-            <Stack.Screen name="Sign in" component={SignInScreen} />
-            <Stack.Screen name="Sign Up" component={SignUpScreen} />
-            <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
-            <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
-            <Stack.Screen name="ConfirmEmail" component={ConfirmEmailScreen} />
+        {user ? (
+   <>
+   <Stack.Screen name="Home" component={MyDrawer} />
+   <Stack.Screen name="listNote" component={CustomListNote} />
+   <Stack.Screen name="addNoteScreen" component={AddNoteScreen} />
+   <Stack.Screen name='Counter' component={Count} />
+   </>
+ ):(
+   <>
+   <Stack.Screen name="OnBoardingScreen" component={OnBoarding} />
+   <Stack.Screen name="Sign in" component={SignInScreen} />
+   <Stack.Screen name="Sign Up" component={SignUpScreen} />
+   <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
+   <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
+   <Stack.Screen name="ConfirmEmail" component={ConfirmEmailScreen} />
+   </>
+  )}
       </Stack.Navigator>
     </NavigationContainer>
   )
@@ -82,22 +93,40 @@ const Router = () => {
 
 const Drawer = createDrawerNavigator();
 
-function MyDrawer() {
-  return (
+ function MyDrawer() {
+     return (
     <Drawer.Navigator
-    drawerContent={props => <CustomSideMenu {...props}/>}
-    screenOptions={{
-      headerShown:false
-    }}
-    >
-      <Drawer.Screen 
-      name="Note" 
-      component={NoteListScreen} 
+      drawerContent={props => <CustomSideMenu {...props}/>}
+       screenOptions={{
+         headerShown:false
+       }}
+     >
+     <Drawer.Screen 
+         name="Note" 
+          component={NoteListScreen} 
+          />
+       </Drawer.Navigator>
+    );
+  }
+
+// const Drawer = createDrawerNavigator();
+
+// function MyDrawer() {
+//   return (
+//     <Drawer.Navigator
+//     drawerContent={props => <CustomSideMenu {...props}/>}
+//     screenOptions={{
+//       headerShown:false
+//     }}
+//     >
+//       <Drawer.Screen 
+//       name="Note" 
+//       component={NoteListScreen} 
         
-       />
-    </Drawer.Navigator>
-  );
-}
+//        />
+//     </Drawer.Navigator>
+//   );
+// }
 
 // const Tab = createBottomTabNavigator();
 // function MyTabs() {

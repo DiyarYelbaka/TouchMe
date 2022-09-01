@@ -15,11 +15,12 @@ const CustomSideMenu = () => {
   
   return (
     <View style={styles.container}>
-      
-         <Image source={profile}  style={styles.image}/>
-         <Text style={styles.nameText}>Diyar</Text>
-        <TouchableOpacity style={styles.bottom}  onPress={onPress}><Text style={styles.titleOut}>Log Out</Text></TouchableOpacity>
-      
+      <TouchableOpacity
+      style={styles.button}
+      onPress={onPress}
+      >
+        <Text style={styles.text}>Çıkış Yap</Text>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -27,7 +28,7 @@ const CustomSideMenu = () => {
 const styles=StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:'#20C3AF',
+    backgroundColor:'#252525',
   },
  
   image:{
@@ -54,6 +55,20 @@ const styles=StyleSheet.create({
   bottom:{
     bottom:0,
    
+  },
+  button:{
+    marginVertical:200,
+    backgroundColor:'yellow',
+    width:100,
+    height:23,
+    borderRadius:10,
+    alignItems:'center',
+    alignSelf:'center'
+  },
+  text:{
+    color:'black',
+    fontSize:15,
+    fontWeight:'bold',
   }
 })
 

@@ -22,7 +22,8 @@ const TopComponent = ({text,backPress,drawerPress}) => {
 const styles= StyleSheet.create({
   container:{
     height:60,
-    alignItems:'center'
+    alignItems:'center',
+    marginVertical:5
   },
   bodyContainer:{
     flexDirection:'row',

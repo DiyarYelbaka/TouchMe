@@ -6,12 +6,12 @@ const CustomToDoTopComponent = ({navigation,DrawerSubmit}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.head}>Notes</Text>
-      <TouchableOpacity 
+      {/* <TouchableOpacity 
       onPress={DrawerSubmit}
       style={styles.button}
       >
         <Icon name="backburger" size={40} color="white" />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     
     </View>
   )
@@ -21,7 +21,7 @@ const styles= StyleSheet.create({
     container:{
      backgroundColor:'#252525',
      width:Dimensions.get('window').width/1,
-     height:50,
+     height:70,
      flexDirection:'row',
      margin:15,
     },
@@ -31,6 +31,7 @@ const styles= StyleSheet.create({
       fontSize:43,
       alignSelf:'center',
       marginHorizontal:10,
+      marginVertical:12
     },
     button:{
       margin:8,

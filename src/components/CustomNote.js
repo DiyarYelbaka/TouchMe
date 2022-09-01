@@ -1,9 +1,14 @@
 import { View, Text,StyleSheet,TouchableOpacity, Pressable,Dimensions,Alert} from 'react-native'
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
+
+import { useNavigation } from '@react-navigation/native';
 
 
-const CustomNote = ({data,complitePress,navigation,deleteButton}) => {
-  
+const CustomNote = ({data,complitePress,deleteButton}) => {
+
+  const navigation = useNavigation();
+
+
   const generateColor = () => {
     const randomColor = Math.floor(Math.random() * 16777215)
       .toString(16)
@@ -17,7 +22,7 @@ const CustomNote = ({data,complitePress,navigation,deleteButton}) => {
   }
 
   function infoPress(){
-    Alert.alert('Bilgi','Silmek için lütfen basılı tutunuz !')
+    navigation.navigate('listNote',{data})
   }
   
   return (
@@ -27,9 +32,7 @@ const CustomNote = ({data,complitePress,navigation,deleteButton}) => {
     style={[styles.container, {backgroundColor: generateColor()}]}
    >
     <View>
-     <Text  style={styles.title}>{data.description}</Text>
-     <View style={styles.checkboxContainer}>
-      </View>
+     <Text  style={styles.title}>{data.name}</Text>
      </View>
      </TouchableOpacity>
      
@@ -53,24 +56,7 @@ const styles= StyleSheet.create({
         color:'white',
         margin:20
     },
-    checkboxContainer:{
-      alignItems:'center',
-      top:30,
-    },
-    checkbox: {
-      borderRadius: 2,
-      borderWidth: 2,
-      fontWeight: '700',
-      height: 20,
-      marginLeft: 'auto',
-      textAlign: 'center',
-      width: 20,
-      
-    },
-    completedCheckbox: {
-      backgroundColor: '#000',
-      color: '#fff',
-    },
+
 })
  
 export default CustomNote
