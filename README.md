@@ -68,4 +68,3 @@ If you have any error or issues please search on Google
 - https://react-hook-form.com
 - https://docs.amplify.aws/start/q/integration/react-native/
 - https://stackoverflow.com/
-- https://www.youtube.com/c/notjustdev
