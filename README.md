@@ -1,13 +1,14 @@
-# AWS-Authenticator
+# Note List App
 
 
 <p >
   
-  <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/3.png" width="150"  >
-    <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/4.png" width="150"  >
-      <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/5.png" width="150"  >
-        <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/1.png" width="150"  >
-         <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/2.png" width="150"  >
+  <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/3.png" width="200"  >
+    <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/4.png" width="200"  >
+      <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/5.png" width="200"  >
+        <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/2.png" width="200"  >
+         <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/1.png" width="200"  >
+           <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/6.png" width="200"  >
 </p>
 
 <hr />
@@ -16,7 +17,10 @@
 - React Native CLI
 - React Navigation
 - React Hook Form
-- AWS-Amplify
+- AWS-Amplify Studio 
+- Cognito
+- Amplify DataStore 
+- GraphQL schema
 
 <hr />
 
@@ -27,6 +31,11 @@
 - **[Full setup link](- https://reactnative.dev/docs/environment-setup)**
 
 <hr />
+
+### Designs I used
+- **[For Authenticator](https://www.behance.net/gallery/108454511/Free-download-mobile-UI-Kit)**
+- **[For To Do Screen](https://www.figma.com/community/file/1014161465589596715)**
+
 
 ### How can i run this project
 
