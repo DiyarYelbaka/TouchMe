@@ -13,6 +13,15 @@
 
 <hr />
 
+  ### Amplify Studio SS
+<p>
+   <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/data.png" width="400" height="200"  >
+  <img src="https://github.com/DiyarYelbaka/TouchMe/blob/main/assets/readmePhoto/user2.png" width="400"  height="200"  >
+     
+</p>
+
+<hr />
+
 ### What i used for this project
 - React Native CLI
 - React Navigation
@@ -40,8 +49,8 @@
 ### How can i run this project
 
 ```console
-by@respect:~$ git clone https://github.com/DiyarYelbaka/AWS-Authenticator
-by@respect:~$ cd AWS-Authenticator
+by@respect:~$ git clone https://github.com/DiyarYelbaka/TouchMe
+by@respect:~$ cd TouchMe
 by@respect:~$ npm install
 by@respect:~$ npx react-native start
 by@respect:~$ npx react-native run-android
