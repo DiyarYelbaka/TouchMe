@@ -35,7 +35,7 @@
 
 ### Requirements
 - React Native CLI
-- NNode, JDK
+- Node js, JDK
 - Android Studio
 - **[Full setup link](- https://reactnative.dev/docs/environment-setup)**
 
